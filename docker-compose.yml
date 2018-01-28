@@ -1,0 +1,13 @@
+version: "2"
+
+services:
+  seeker:
+    build: .
+    environment:
+      - AMQP_PATH=amqp://auriga:auriga@auriga-devbox:5672
+      - AMQP_EXCHANGE=topic
+      - AMQP_QUEUE_RAW=raw
+      - AMQP_KEY_MESSAGE=message
+      - AMQP_KEY_GUILD=guild
+    extra_hosts:
+      - "auriga-devbox:10.200.5.5"
